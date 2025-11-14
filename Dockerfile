@@ -87,23 +87,3 @@ ARG TARGETPLATFORM
 COPY --from=build "/opt/$TARGETPLATFORM" /opt/$TARGETPLATFORM
 
 ENV PKG_CONFIG_PATH="/opt/$TARGETPLATFORM/lib64/pkgconfig:/opt/$TARGETPLATFORM/share/pkgconfig"
-
-# FROM final AS code
-# WORKDIR /src
-# COPY test.cpp .
-#
-# RUN <<EOF
-# g++ -std=c++17 -O3 -o test \
-#   $(pkg-config openssl --cflags) \
-#   $(pkg-config nlohmann_json --cflags) \
-#   test.cpp \
-#   $(pkg-config openssl --libs)
-# EOF
-
-# FROM debian:13-slim
-#
-# COPY --from=code /src/test /usr/local/bin/.
-#
-# CMD ["/usr/local/bin/test"]
-#
-#

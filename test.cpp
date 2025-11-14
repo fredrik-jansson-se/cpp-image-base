@@ -6,6 +6,8 @@
 
 #include <nlohmann/json.hpp>
 
+#include <boost/version.hpp>
+
 int main() {
 
   std::cout << "Test started\n";
@@ -15,5 +17,7 @@ int main() {
   OPENSSL_init_crypto(0, nullptr);
 
   std::cout << "JSON: " << nlohmann::json::meta() << '\n';
+
+  std::cout << "Boost version: " << BOOST_LIB_VERSION << '\n';
   return 0;
 }
