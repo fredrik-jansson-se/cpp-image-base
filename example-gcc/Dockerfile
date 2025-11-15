@@ -1,3 +1,4 @@
+# vi: ft=dockerfile
 FROM ghcr.io/fredrik-jansson-se/cpp-image-base:main AS code
 ARG TARGETPLATFORM
 WORKDIR /src
